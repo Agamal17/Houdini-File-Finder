@@ -6,6 +6,7 @@ import os
 class App(QWidget):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("Files Finder")
 
         self.nodes = {}
         self.search_path = ''
@@ -99,6 +100,10 @@ class App(QWidget):
 
         lost = []
         found = []
+
+        hip=hou.expandString("$HIP")
+        job=hou.expandString("$JOB")
+        prj=hou.expandString("$PRJ")
 
         for nodeName, filePath in self.nodes.items():
             file = filePath.split("/")[-1]
